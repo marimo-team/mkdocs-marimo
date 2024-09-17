@@ -1,0 +1,39 @@
+site_name: marimo mkdocs plugin
+site_url: https://marimo-team.github.io/mkdocs-marimo
+repo_url: https://github.com/marimo-team/mkdocs-marimo
+
+docs_dir: docs/
+copyright: '2024 Marimo Team'
+
+theme:
+  name: material
+  font: false
+  logo: assets/logo.png
+  palette:
+    primary: white
+  features:
+    - navigation.expand
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - toc.follow
+    - toc.integrate
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/marimo-team/marimo
+      name: marimo on GitHub
+    - icon: fontawesome/brands/discord
+      link: https://marimo.io/discord
+      name: marimo on Discord
+plugins:
+  - search
+  # - marimo:
+  #     marimo_version: '0.8.15'
+
+watch:
+  - mkdocs_marimo
+
+hooks:
+  - mkdocs_marimo/plugin.py

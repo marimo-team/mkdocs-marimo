@@ -1,0 +1,9 @@
+*.pyc
+*.egg-info/
+dist/
+site/
+.tox/
+.mypy_cache/
+.pytest_cache/
+.venv/
+__pycache__/

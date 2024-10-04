@@ -92,6 +92,7 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         return CODE_FENCE_REGEX.sub(lambda m: marimo_repl(m, outputs), markdown)
 
     def on_post_page(self, output: str, /, *, page: Page, config: MkDocsConfig) -> str:
+        assert page.abs_url is not None
         log.info("[marimo] on_post_page " + page.abs_url)
         generator = marimo.MarimoIslandGenerator()
         header = generator.render_head()

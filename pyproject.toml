@@ -52,3 +52,7 @@ line-length = 100
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+
+[[tool.mypy.overrides]]
+module = ["htmlmin"]
+ignore_missing_imports = true

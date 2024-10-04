@@ -18,6 +18,7 @@ hatchling = "*"
 
 [feature.test.dependencies]
 pytest = "*"
+mypy = "*"
 [feature.test.tasks]
 test = "pytest -xs"
 

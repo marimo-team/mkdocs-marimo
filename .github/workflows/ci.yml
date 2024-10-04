@@ -32,7 +32,10 @@ jobs:
           pixi run -e ${{ matrix.env }} postinstall
       - name: Run tests
         run: |
-          pixi run -e ${{ matrix.env }} test
+          pixi run -e ${{ matrix.env }} test --color=yes
+      - name: Type checking
+        run: |
+          pixi run -e ${{ matrix.env }} mypy mkdocs_marimo
 
   lint:
     runs-on: ubuntu-latest

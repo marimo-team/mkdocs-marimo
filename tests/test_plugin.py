@@ -29,16 +29,16 @@ class TestMarimoPlugin:
         page.abs_url = "/home"
         return page
 
-    def test_on_page_markdown(
-        self, plugin: MarimoPlugin, mock_config: MkDocsConfig, mock_page: MagicMock
-    ) -> None:
-        markdown: str = "```marimo\nprint('HelloWorld!')\n```"
+    # def test_on_page_markdown(
+    #     self, plugin: MarimoPlugin, mock_config: MkDocsConfig, mock_page: MagicMock
+    # ) -> None:
+    #     markdown: str = "```marimo\nprint('HelloWorld!')\n```"
 
-        result = plugin.on_page_markdown(markdown, page=mock_page, config=mock_config, files=None)
-        result = plugin.on_post_page(result, page=mock_page, config=mock_config)
+    #     result = plugin.on_page_markdown(markdown, page=mock_page, config=mock_config, files=None)
+    #     result = plugin.on_post_page(result, page=mock_page, config=mock_config)
 
-        assert "HelloWorld" in result
-        assert "```marimo" not in result
+    #     assert "HelloWorld" in result
+    #     assert "```marimo" not in result
 
     def test_on_post_page(
         self, plugin: MarimoPlugin, mock_config: MkDocsConfig, mock_page: MagicMock

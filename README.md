@@ -12,21 +12,19 @@ Feel free to ask questions, enhancements and to contribute to this project!
 
 ## Development
 
-Install `hatch`:
-
-- for macOS: `brew install hatch`
+Install `pixi`: see [pixi docs](https://pixi.sh)
 
 Run the tests:
 
 ```bash
-hatch run test:test
-hatch run style:check
+pixi run postinstall
+pixi run test
 ```
 
 Serve the documentation:
 
 ```bash
-hatch run doc:serve
+pixi run docs
 ```
 
 ## Credits

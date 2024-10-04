@@ -1,48 +1,47 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   test:
     strategy:
       max-parallel: 5
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        # Just to slim down the test matrix:
-        exclude:
-          - python-version: 3.9
-            os: ubuntu-latest
-          - python-version: 3.10
-            os: macos-latest
-          - python-version: 3.10
-            os: windows-latest
+        env:
+          - py39
+          - py310
+          - py311
+          - py312
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - name: Setup pixi
+        uses: prefix-dev/setup-pixi@ba3bb36eb2066252b2363392b7739741bb777659 # v0.8.1
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+          environments: ${{ matrix.env }}
+      - name: Install repository
         run: |
-          python -m pip install --upgrade hatch
+          pixi run -e ${{ matrix.env }} postinstall
       - name: Run tests
         run: |
-          hatch run +py=${{ matrix.py || matrix.python-version }} test:test
-        shell: bash
+          pixi run -e ${{ matrix.env }} test
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: prefix-dev/setup-pixi@ba3bb36eb2066252b2363392b7739741bb777659 # v0.8.1
         with:
-          python-version: '3.12'
-      - name: Install Python dependencies
+          environments: lint default
+      - name: Lint
         run: |
-          python -m pip install hatch
-      - name: Check style
-        if: always()
-        run: hatch run style:check
+          pixi run -e lint-all-check

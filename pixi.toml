@@ -1,0 +1,61 @@
+[project]
+channels = ["conda-forge"]
+name = "mkdocs-marimo"
+platforms = ["linux-64", "linux-aarch64", "osx-arm64", "osx-64", "win-64"]
+
+[tasks]
+postinstall = "pip install --no-deps --no-build-isolation --disable-pip-version-check -e ."
+
+[dependencies]
+python = ">=3.9"
+htmlmin = ">=0.1.12,<0.2"
+marimo = ">=0.8.18"
+mkdocs = ">=1.6.1,<2"
+
+[host-dependencies]
+pip = "*"
+hatchling = "*"
+
+[feature.test.dependencies]
+pytest = "*"
+mypy = "*"
+[feature.test.tasks]
+test = "pytest -xs"
+
+[feature.docs.dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+[feature.docs.tasks]
+docs = "mkdocs serve"
+
+[feature.lint.dependencies]
+ruff = "*"
+[feature.lint.tasks]
+lint-all = { depends-on = ["ruff", "ruff-format"] }
+lint-all-check = { depends-on = ["ruff", "ruff-format-check"] }
+ruff = "ruff check mkdocs_marimo"
+ruff-format = "ruff format mkdocs_marimo"
+ruff-format-check = "ruff format --check mkdocs_marimo"
+
+[feature.build.dependencies]
+python-build = "*"
+hatchling = "*"
+
+[feature.py39.dependencies]
+python = "3.9.*"
+[feature.py310.dependencies]
+python = "3.10.*"
+[feature.py311.dependencies]
+python = "3.11.*"
+[feature.py312.dependencies]
+python = "3.12.*"
+
+[environments]
+default = ["test", "py312"]
+py39 = ["test", "py39"]
+py310 = ["test", "py310"]
+py311 = ["test", "py311"]
+py312 = ["test", "py312"]
+docs = ["docs"]
+lint = { features = ["lint"], no-default-feature = true }
+build = { features = ["build"], no-default-feature = true }

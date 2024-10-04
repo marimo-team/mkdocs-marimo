@@ -1,0 +1,35 @@
+name: Deploy docs
+
+# Automatically stop old builds on the same branch/PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+      - name: Install Python
+        uses: prefix-dev/setup-pixi@ba3bb36eb2066252b2363392b7739741bb777659 # v0.8.1
+        with:
+          environments: docs
+      - name: Install repository
+        run: pixi run -e docs postinstall
+      - name: Build site
+        run: pixi run -e docs mkdocs build
+      - name: Deploy to gh-pages
+        # TODO: replace with a maintained action
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: oprypin/push-to-gh-pages@v3
+        with:
+          publish_dir: site
+          commit_message: 'Generate docs: '

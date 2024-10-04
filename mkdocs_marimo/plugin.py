@@ -81,7 +81,7 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         def marimo_repl(match: re.Match[str], outputs: list[Any]) -> str:
             if is_inside_four_backticks(markdown, match.start()):
                 return match.group(0)
-            options = match.group(1)
+            options = match.group(1)  # noqa: F841
             index = next(i for i, m in enumerate(matches) if match_equal(m, match))
             output = outputs[index]
             html = output.render()
@@ -92,6 +92,7 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         return CODE_FENCE_REGEX.sub(lambda m: marimo_repl(m, outputs), markdown)
 
     def on_post_page(self, output: str, /, *, page: Page, config: MkDocsConfig) -> str:
+        assert page.abs_url is not None
         log.info("[marimo] on_post_page " + page.abs_url)
         generator = marimo.MarimoIslandGenerator()
         header = generator.render_head()

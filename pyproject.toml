@@ -48,9 +48,7 @@ include = [
 exclude = ["/tests"]
 
 [tool.ruff]
-ignore = ["E501"]
 line-length = 100
-
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"

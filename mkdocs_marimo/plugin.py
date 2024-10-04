@@ -81,7 +81,7 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         def marimo_repl(match: re.Match[str], outputs: list[Any]) -> str:
             if is_inside_four_backticks(markdown, match.start()):
                 return match.group(0)
-            options = match.group(1)
+            options = match.group(1)  # noqa: F841
             index = next(i for i, m in enumerate(matches) if match_equal(m, match))
             output = outputs[index]
             html = output.render()

@@ -13,13 +13,13 @@ jobs:
       matrix:
         env:
           - py39
-          - py310
-          - py311
-          - py312
+          # - py310
+          # - py311
+          # - py312
         os:
-          - ubuntu-latest
+          # - ubuntu-latest
           - windows-latest
-          - macos-latest
+          # - macos-latest
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     steps:

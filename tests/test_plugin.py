@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import List, Match
+from typing import List, Match, Optional
 from unittest.mock import MagicMock
 
 import marimo
@@ -25,7 +25,7 @@ class MockFile(File):
         super().__init__(abs_src_path, src_dir=None, dest_dir="", use_directory_urls=False)
 
     @property
-    def abs_url(self) -> str | None:
+    def abs_url(self) -> Optional[str]:
         return self.abs_src_path
 
 

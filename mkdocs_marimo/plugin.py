@@ -2,7 +2,7 @@ import asyncio
 import logging
 import os
 import re
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 import htmlmin
 import marimo
@@ -303,7 +303,7 @@ def on_files(files: Files, config: MkDocsConfig) -> Files:
     return plugin.on_files(files, config)
 
 
-def _is_marimo_file(filepath: str | None) -> bool:
+def _is_marimo_file(filepath: Optional[str]) -> bool:
     if filepath is None:
         return False
 

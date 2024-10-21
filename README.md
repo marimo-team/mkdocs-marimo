@@ -1,33 +1,45 @@
-# MkDocs Marimo Plugin
+# MkDocs marimo Plugin
 
-This plugin allows you to embed interactive Marimo notebooks in your MkDocs documentation.
+> [!WARNING]
+> The MkDocs marimo plugin is under active development. Features and documentation are being continuously updated and expanded.
+
+This plugin allows you to embed interactive [marimo](https://github.com/marimo-team/marimo) notebooks in your MkDocs documentation.
 
 ## Installation
 
-Install the plugin using pip:
+```bash
+# pip
+pip install mkdocs-marimo
+# uv
+uv pip install mkdocs-marimo
+# pixi
+pixi add mkdocs-marimo
+```
+
+## Usage
+
+Create reactive and interactive Python blocks in your markdown files using [marimo](https://github.com/marimo-team/marimo).
+
+````markdown
+```python {marimo}
+import marimo as mo
+
+name = mo.ui.text(placeholder="Enter your name")
+name
+```
+
+```python {marimo}
+mo.md(f"Hello, **{name.value or '__'}**!")
+```
+````
+
+Checkout the [documentation](https://marimo-team.github.io/mkdocs-marimo) for more examples.
 
 ## Contributions welcome
 
 Feel free to ask questions, enhancements and to contribute to this project!
 
-## Development
-
-Install `hatch`:
-
-- for macOS: `brew install hatch`
-
-Run the tests:
-
-```bash
-hatch run test:test
-hatch run style:check
-```
-
-Serve the documentation:
-
-```bash
-hatch run doc:serve
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## Credits
 

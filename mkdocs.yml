@@ -1,5 +1,9 @@
-site_name: marimo mkdocs plugin
+site_name: marimo mkdocs
 site_url: https://marimo-team.github.io/mkdocs-marimo
+site_author: marimo team
+site_description: mk
+
+repo_name: mkdocs-marimo
 repo_url: https://github.com/marimo-team/mkdocs-marimo
 
 docs_dir: docs/
@@ -8,16 +12,50 @@ copyright: '2024 Marimo Team'
 theme:
   name: material
   font: false
-  logo: assets/logo.png
-  palette:
-    primary: white
+  logo: assets/android-chrome-192x192.png
+  favicon: assets/favicon.ico
   features:
-    - navigation.expand
-    - navigation.indexes
-    - navigation.sections
-    - navigation.tabs
-    - toc.follow
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - content.code.annotate
     - toc.integrate
+    - toc.follow
+    - navigation.path
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    # Palette toggle for automatic mode
+    - media: '(prefers-color-scheme)'
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+nav:
+  - Overview: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+      - Configuration: getting-started/configuration.md
+      - Inline Notebook: getting-started/inline-notebook.md
+      - Notebooks in navigation: getting-started/nav_notebook.py
 
 extra:
   social:
@@ -27,6 +65,9 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://marimo.io/discord
       name: marimo on Discord
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/marimo_io
+      name: marimo on Twitter
 plugins:
   - search
   # - marimo:
@@ -37,3 +78,37 @@ watch:
 
 hooks:
   - mkdocs_marimo/plugin.py
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - toc:
+      anchorlink: true
+      anchorlink_class: 'toclink'
+  - pymdownx.snippets:
+  - pymdownx.magiclink:
+  - attr_list:
+  - md_in_html:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite:
+  - pymdownx.superfences:
+  - markdown.extensions.attr_list:
+  - pymdownx.keys:
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: warn
+  links:
+    not_found: warn
+    anchors: warn
+    absolute_links: warn
+    unrecognized_links: warn

@@ -6,6 +6,7 @@ from typing import Any, Dict, Optional
 
 import htmlmin
 import marimo
+from mkdocs.config.base import Config as BaseConfig
 from mkdocs.config.config_options import Type as OptionType
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.plugins import BasePlugin
@@ -37,7 +38,7 @@ def collect_marimo_code(markdown: str) -> tuple[list[str], list[re.Match[str]]]:
     return code_blocks, matches
 
 
-class MarimoPluginConfig(MkDocsConfig):
+class MarimoPluginConfig(BaseConfig):
     enabled = OptionType(bool, default=True)
     marimo_version = OptionType(str, default=marimo.__version__)
     display_code = OptionType(bool, default=False)
@@ -51,7 +52,9 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
     def __init__(self):
         super().__init__()
         if isinstance(self.config, dict):
-            self.config = MarimoPluginConfig(**self.config)
+            plugin_config = MarimoPluginConfig()
+            plugin_config.load_dict(self.config)
+            self.config = plugin_config
 
     def on_config(self, config: MkDocsConfig) -> MkDocsConfig:
         if not self.config.enabled:

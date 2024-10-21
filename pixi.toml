@@ -26,7 +26,7 @@ test = "pytest -xs"
 mkdocs = "*"
 mkdocs-material = "*"
 # For examples
-matplotlib = "*"
+matplotlib-base = "*"
 numpy = "*"
 pandas = "*"
 [feature.docs.tasks]
@@ -35,12 +35,13 @@ docs-build = "mkdocs build"
 
 [feature.lint.dependencies]
 ruff = "*"
+pre-commit = "*"
+pre-commit-hooks = "*"
+taplo = "*"
+typos = "*"
 [feature.lint.tasks]
-lint-all = {depends-on = ["ruff", "ruff-format"]}
-lint-all-check = {depends-on = ["ruff", "ruff-format-check"]}
-ruff = "ruff check mkdocs_marimo"
-ruff-format = "ruff format mkdocs_marimo"
-ruff-format-check = "ruff format --check mkdocs_marimo"
+pre-commit-install = "pre-commit install"
+pre-commit-run = "pre-commit run -a"
 
 [feature.build.dependencies]
 hatchling = "*"
@@ -56,10 +57,10 @@ python = "3.11.*"
 python = "3.12.*"
 
 [environments]
-build = {features = ["build"], no-default-feature = true}
-default = ["test", "py312"]
+build = { features = ["build"], no-default-feature = true }
+default = ["test", "py312", "docs"]
 docs = ["docs"]
-lint = {features = ["lint"], no-default-feature = true}
+lint = { features = ["lint"], no-default-feature = true }
 py310 = ["test", "py310"]
 py311 = ["test", "py311"]
 py312 = ["test", "py312"]

@@ -46,8 +46,6 @@ class MarimoPluginConfig(MkDocsConfig):
 
 
 class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
-    version = "0.1.0"
-
     replacements: dict[str, list[str]] = {}
 
     def __init__(self):

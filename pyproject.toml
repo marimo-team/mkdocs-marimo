@@ -3,9 +3,7 @@ build-backend = "hatchling.build"
 requires = ["hatchling"]
 
 [project]
-authors = [
-  {name = "marimo team", email = "myles@marimo.io"},
-]
+authors = [{ name = "marimo team", email = "myles@marimo.io" }]
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: POSIX :: Linux",
@@ -18,11 +16,7 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = [
-  "htmlmin>=0.1.12,<0.2",
-  "marimo>=0.8.15",
-  "mkdocs>=1.5.2,<2",
-]
+dependencies = ["htmlmin>=0.1.12,<0.2", "marimo>=0.8.15", "mkdocs>=1.5.2,<2"]
 description = "MkDocs marimo plugin"
 license = "Apache-2.0"
 name = "mkdocs-marimo"
@@ -40,10 +34,7 @@ Source = "https://github.com/marimo-team/mkdocs-marimo"
 Tracker = "https://github.com/marimo-team/mkdocs-marimo/issues"
 
 [tool.hatch.build.targets.sdist]
-include = [
-  "/mkdocs_marimo",
-  "/tests",
-]
+include = ["/mkdocs_marimo", "/tests"]
 [tool.hatch.build.targets.wheel]
 exclude = ["/tests"]
 
@@ -52,6 +43,14 @@ line-length = 100
 [tool.ruff.format]
 indent-style = "space"
 quote-style = "double"
+[tool.ruff.lint]
+ignore = [
+  "F841", # https://docs.astral.sh/ruff/rules/unused-variable/
+  "F821", # https://docs.astral.sh/ruff/rules/undefined-name/
+]
+
+[tool.mypy]
+disable_error_code = "no-redef"
 
 [[tool.mypy.overrides]]
 ignore_missing_imports = true

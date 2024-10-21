@@ -111,7 +111,7 @@ class TestMarimoPlugin:
     def test_marimo_plugin_config(self):
         config = MarimoPluginConfig()
 
-        assert config.enabled == True
+        assert config.enabled
         assert config.marimo_version == marimo.__version__
 
     def test_parse_options(self, plugin: MarimoPlugin):
@@ -120,8 +120,8 @@ class TestMarimoPlugin:
         assert plugin.parse_options(options_string) == expected
 
     def test_parse_value(self, plugin: MarimoPlugin):
-        assert plugin.parse_value("true") == True
-        assert plugin.parse_value("false") == False
+        assert plugin.parse_value("true")
+        assert not plugin.parse_value("false")
         assert plugin.parse_value("42") == 42
         assert plugin.parse_value("3.14") == 3.14
         assert plugin.parse_value("hello") == "hello"

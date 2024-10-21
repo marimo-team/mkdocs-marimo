@@ -1,5 +1,8 @@
 # MkDocs Marimo Plugin
 
+!!! note "Work in Progress"
+The MkDocs Marimo Plugin is under active development. Features and documentation are being continuously updated and expanded.
+
 This plugin allows you to embed interactive Marimo notebooks in your MkDocs documentation.
 
 ## Installation

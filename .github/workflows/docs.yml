@@ -14,6 +14,7 @@ on:
 jobs:
   build:
     name: Deploy docs
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - name: Download source

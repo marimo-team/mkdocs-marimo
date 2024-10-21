@@ -1,7 +1,3 @@
----
-title: marimo for MkDocs
----
-
 # marimo for MkDocs
 
 [![PyPI](https://img.shields.io/pypi/v/mkdocs-marimo.svg)](https://pypi.org/project/mkdocs-marimo/)
@@ -11,7 +7,7 @@ title: marimo for MkDocs
 
 <!-- [![Conda](https://img.shields.io/conda/v/conda-forge/mkdocs-marimo.svg)](https://anaconda.org/conda-forge/mkdocs-marimo) -->
 
-An MkDocs plugin that brings interactive Python code execution to your documentation using [marimo](https://github.com/marimo-team/marimo).
+A MkDocs plugin that brings interactive Python code execution to your documentation using [marimo](https://github.com/marimo-team/marimo).
 
 ## Features
 

@@ -19,53 +19,53 @@ A MkDocs plugin that brings interactive Python code execution to your documentat
 
 ## Quick Start
 
-1. Install the plugin:
+### 1. Install the plugin
 
 === "pip"
 
-```bash
-pip install mkdocs-marimo
-```
+    ```bash
+    pip install mkdocs-marimo
+    ```
 
 === "uv"
 
-```bash
-uv pip install mkdocs-marimo
-```
+    ```bash
+    uv pip install mkdocs-marimo
+    ```
 
 === "pixi"
 
-```bash
-pixi add mkdocs-marimo
-```
+    ```bash
+    pixi add mkdocs-marimo
+    ```
 
 === "conda"
 
-```bash
-conda install -c conda-forge mkdocs-marimo
+    ```bash
+    conda install -c conda-forge mkdocs-marimo
+    ```
+
+### 2. Add the plugin to your `mkdocs.yml`
+
+```yaml
+plugins:
+  - marimo
 ```
 
-1. Add the plugin to your `mkdocs.yml`:
+### 3. Write interactive Python code in your Markdown files
 
-   ```yaml
-   plugins:
-     - marimo
-   ```
+````markdown
+```python {marimo}
+import marimo as mo
 
-2. Write interactive Python code in your Markdown files:
+name = mo.ui.text(placeholder="Enter your name")
+name
+```
 
-   ````markdown
-   ```python {marimo}
-   import marimo as mo
-
-   name = mo.ui.text(placeholder="Enter your name")
-   name
-   ```
-
-   ```python {marimo}
-   mo.md(f"Hello, **{name.value or '__'}**!")
-   ```
-   ````
+```python {marimo}
+mo.md(f"Hello, **{name.value or '__'}**!")
+```
+````
 
 ## Example: Interactive Sine Wave
 
@@ -93,7 +93,7 @@ amplitude
 plotsin(amplitude.value, period)
 ```
 
-## Why marimo for MkDocs?
+## Why mkdocs-marimo?
 
 - **Interactive Documentation**: Engage your readers with live, interactive code examples.
 - **Real-time Feedback**: Instantly see the effects of code changes and parameter adjustments.
@@ -101,7 +101,7 @@ plotsin(amplitude.value, period)
 
 ## Getting Started
 
-Check out our [Getting Started guide](getting-started/index.md) to learn more about using marimo in your MkDocs projects.
+Check out our [Getting Started guide](getting-started/quick-start.md) to learn more about using marimo inside MkDocs.
 
 ## Community
 
@@ -110,4 +110,4 @@ Check out our [Getting Started guide](getting-started/index.md) to learn more ab
 
 ## License
 
-marimo for MkDocs is released under the [Apache License 2.0](https://github.com/marimo-team/mkdocs-marimo/blob/main/LICENSE).
+mkdocs-marimo is released under the [Apache License 2.0](https://github.com/marimo-team/mkdocs-marimo/blob/main/LICENSE).

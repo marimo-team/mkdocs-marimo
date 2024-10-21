@@ -1,6 +1,6 @@
 # Quick Start
 
-This guide will help you get started with marimo for MkDocs quickly. We'll cover the basics of writing interactive Python code in your documentation.
+This guide will help you get started with using marimo inside MkDocs quickly. We'll cover the basics of writing interactive Python code in your documentation.
 
 ## Prerequisites
 

@@ -11,6 +11,12 @@ pixi run postinstall
 pixi run test
 ```
 
+Type check:
+
+```bash
+pixi run mypy mkdocs_marimo
+```
+
 Serve the documentation:
 
 ```bash

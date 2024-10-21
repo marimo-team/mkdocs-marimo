@@ -12,13 +12,11 @@
         <meta name="author" content="marimo team">
       
       
-        <link rel="canonical" href="https://marimo-team.github.io/mkdocs-marimo/getting-started/installation/">
+        <link rel="canonical" href="https://marimo-team.github.io/mkdocs-marimo/getting-started/nav_notebook/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../inline-notebook/">
       
-      
-        <link rel="next" href="../quick-start/">
       
       
       <link rel="icon" href="../../assets/favicon.ico">
@@ -26,7 +24,7 @@
     
     
       
-        <title>Installation - marimo mkdocs</title>
+        <title>Notebooks in navigation - marimo mkdocs</title>
       
     
     
@@ -92,11 +90,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#installation" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -128,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Notebooks in navigation
             
           </span>
         </div>
@@ -336,30 +329,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Installation
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -368,35 +341,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#add-the-plugin-to-your-mkdocsyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add the plugin to your mkdocs.yml
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -469,10 +413,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../nav_notebook/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -481,6 +432,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -511,18 +463,67 @@
   
 
 
-<h1 id="installation"><a class="toclink" href="#installation">Installation</a></h1>
-<p>Add <code>mkdocs-marimo</code> to your <code>pyproject.toml</code> or <code>requirements.txt</code> file or simply install it using <code>pip</code> or <code>pixi</code>. The plugin will automatically install the minimally required version of <code>mkdocs</code> it is compatible with.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-marimo
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># or</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-marimo
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># or</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pixi<span class="w"> </span>add<span class="w"> </span>mkdocs-marimo
-</code></pre></div>
-<h2 id="add-the-plugin-to-your-mkdocsyml"><a class="toclink" href="#add-the-plugin-to-your-mkdocsyml">Add the plugin to your <code>mkdocs.yml</code></a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">plugins</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">marimo</span>
-</code></pre></div>
+  <h1>Notebooks in navigation</h1>
+
+<div style="margin: auto; max-width: 740px;">
+                  <marimo-island
+        data-app-id="main"
+        data-cell-id="bkHC"
+        data-reactive="true"
+    >
+        <marimo-cell-output>
+
+<div class="marimo" style="--tw-bg-opacity: 0;">
+  <div class="flex flex-col items-center justify-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="size-20 animate-spin text-primary"
+    >
+      <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+    </svg>
+    <div>Initializing...</div>
+  </div>
+</div>
+
+        </marimo-cell-output>
+        <marimo-cell-code hidden> '' </marimo-cell-code>
+    </marimo-island>
+<marimo-island
+    data-app-id="main"
+    data-cell-id="Hbol"
+    data-reactive="true"
+>
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden>mo.md(%22%22%22%0A%23%23%20You%20can%20link%20directly%20to%20marimo%20notebooks%2C%20in%20the%20mkdocs.yml%20file.%0A%0AThis%20content%20comes%20from%20a%20marimo%20notebook.%0A%22%22%22)</marimo-cell-code>
+</marimo-island>
+<marimo-island
+    data-app-id="main"
+    data-cell-id="MJUe"
+    data-reactive="true"
+>
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden>mo.md(%0A%20%20%20%20%22%22%22%0A%20%20%20%20%60%60%60markdown%0A%20%20%20%20nav%3A%0A%20%20%20%20%20%20%20%20Examples%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20-%20Simple%3A%20simple_example.py%0A%20%20%20%20%20%20%20%20%20%20%20%20-%20Complex%3A%20complex_example.py%0A%20%20%20%20%60%60%60%0A%20%20%20%20%22%22%22%0A)</marimo-cell-code>
+</marimo-island>
+<marimo-island
+    data-app-id="main"
+    data-cell-id="vblA"
+    data-reactive="true"
+>
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden>import%20marimo%20as%20mo</marimo-cell-code>
+</marimo-island>
+                </div>
 
 
 

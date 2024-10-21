@@ -268,11 +268,12 @@ class VirtualFile(File):
         self._content = content
 
     def read_text(self) -> str:
-        return self._content
+        return str(self._content)
 
     @property
     def abs_src_path(self) -> str:
         # Return a fake path that doesn't exist on disk
+        assert self.src_dir is not None
         return os.path.join(self.src_dir, "virtual", self.src_path)
 
     def copy_file(self, dirty: bool = False) -> None:

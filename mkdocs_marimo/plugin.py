@@ -66,7 +66,7 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         if page.abs_url is None:
             raise ValueError("Page has no abs_url")
         generator = marimo.MarimoIslandGenerator.from_file(page.abs_url, display_code=False)
-        return generator.render_html()
+        return generator.render_html(max_width="none")
 
     def on_page_markdown(
         self, markdown: str, /, *, page: Page, config: MkDocsConfig, files: Any
@@ -175,7 +175,7 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
 
     def generate_marimo_body(self, file_path: str) -> str:
         generator = marimo.MarimoIslandGenerator.from_file(file_path, display_code=False)
-        return generator.render_body(include_init_island=True)
+        return generator.render_body(include_init_island=True, max_width="none")
 
     def on_post_page(self, output: str, /, *, page: Page, config: MkDocsConfig) -> str:
         if not self.config.enabled:

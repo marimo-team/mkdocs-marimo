@@ -55,7 +55,7 @@ nav:
       - Quick Start: getting-started/quick-start.md
       - Configuration: getting-started/configuration.md
       - Inline Notebook: getting-started/inline-notebook.md
-      - Notebooks in navigation: getting-started/nav_notebook.py
+      - Notebooks in Navigation: getting-started/nav_notebook.py
 
 extra:
   social:

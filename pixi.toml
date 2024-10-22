@@ -8,7 +8,7 @@ postinstall = "pip install --no-deps --no-build-isolation --disable-pip-version-
 
 [dependencies]
 htmlmin = ">=0.1.12,<0.2"
-marimo = ">=0.9.9"
+marimo = ">=0.9.11"
 mkdocs = ">=1.6.1,<2"
 python = ">=3.9"
 
@@ -34,9 +34,9 @@ docs = "mkdocs serve"
 docs-build = "mkdocs build"
 
 [feature.lint.dependencies]
-ruff = "*"
 pre-commit = "*"
 pre-commit-hooks = "*"
+ruff = "*"
 taplo = "*"
 typos = "*"
 [feature.lint.tasks]

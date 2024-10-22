@@ -70,14 +70,14 @@ extra:
       name: marimo on Twitter
 plugins:
   - search
-  # - marimo:
-  #     marimo_version: '0.8.15'
+  - marimo:
+      marimo_version: '0.9.12'
 
 watch:
   - mkdocs_marimo
 
-hooks:
-  - mkdocs_marimo/plugin.py
+# hooks:
+#   - mkdocs_marimo/plugin.py
 
 markdown_extensions:
   - admonition

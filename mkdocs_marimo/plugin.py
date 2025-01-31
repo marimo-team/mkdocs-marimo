@@ -13,6 +13,8 @@ from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File, Files
 from mkdocs.structure.pages import Page
 
+from .blocks import MarimoBlocksExtension
+
 log = logging.getLogger("mkdocs.plugins.marimo")
 
 CODE_FENCE_REGEX = re.compile(r"```python\s*{marimo([^}]*)}\n([\s\S]+?)```", flags=re.MULTILINE)
@@ -44,6 +46,7 @@ class MarimoPluginConfig(BaseConfig):
     display_code = OptionType(bool, default=False)
     display_output = OptionType(bool, default=True)
     is_reactive = OptionType(bool, default=True)
+    use_pymdown_blocks = OptionType(bool, default=True)
 
 
 class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
@@ -59,6 +62,19 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
     def on_config(self, config: MkDocsConfig) -> MkDocsConfig:
         if not self.config.enabled:
             return config
+
+        if self.config.use_pymdown_blocks:
+            # Add MarimoBlocksExtension to markdown extensions if pymdown.blocks is available
+            try:
+                from importlib.util import find_spec
+
+                if find_spec("pymdownx.blocks") is not None:
+                    if not any(
+                        isinstance(ext, MarimoBlocksExtension) for ext in config.markdown_extensions
+                    ):
+                        config.markdown_extensions.append(MarimoBlocksExtension())
+            except ImportError:
+                log.warning("[marimo] pymdown.blocks not found, skipping blocks support")
 
         return config
 
@@ -263,7 +279,12 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
 
 class VirtualFile(File):
     def __init__(
-        self, path: str, src_dir: str, dest_dir: str, use_directory_urls: bool, content: str
+        self,
+        path: str,
+        src_dir: str,
+        dest_dir: str,
+        use_directory_urls: bool,
+        content: str,
     ):
         super().__init__(path, src_dir, dest_dir, use_directory_urls)
         self._content = content

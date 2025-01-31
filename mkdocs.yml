@@ -1,49 +1,56 @@
 site_name: marimo mkdocs
 site_url: https://marimo-team.github.io/mkdocs-marimo
 site_author: marimo team
-site_description: mk
+site_description: The next generation of Python notebooks
+edit_uri: edit/main/docs/
 
 repo_name: mkdocs-marimo
 repo_url: https://github.com/marimo-team/mkdocs-marimo
 
 docs_dir: docs/
-copyright: '2024 Marimo Team'
+copyright: '© marimo 2024'
 
 theme:
   name: material
-  font: false
+  font:
+    text: PT Sans
+    code: Fira Mono
   logo: assets/android-chrome-192x192.png
   favicon: assets/favicon.ico
   features:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.tracking
+    - navigation.path
+    - navigation.footer
+    - navigation.top
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.code.copy
     - content.code.annotate
     - toc.integrate
     - toc.follow
-    - navigation.path
-    - navigation.top
-    - content.code.copy
-    - content.tabs.link
+    - search.highlight
+    - search.share
+    - search.suggest
+    - announce.dismiss
   palette:
-    # Palette toggle for automatic mode
     - media: '(prefers-color-scheme)'
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-
-    # Palette toggle for light mode
     - media: '(prefers-color-scheme: light)'
       scheme: default
       primary: teal
+      accent: pink
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
-      primary: teal
+      primary: deep-purple
+      accent: pink
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
@@ -54,24 +61,34 @@ nav:
       - Installation: getting-started/installation.md
       - Quick Start: getting-started/quick-start.md
       - Configuration: getting-started/configuration.md
+      - Embedding the marimo playground: getting-started/blocks.md
       - Inline Notebook: getting-started/inline-notebook.md
       - Notebooks in Navigation: getting-started/nav_notebook.py
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/marimo-team/marimo
-      name: marimo on GitHub
     - icon: fontawesome/brands/discord
-      link: https://marimo.io/discord
-      name: marimo on Discord
+      link: https://marimo.io/discord?ref=docs
+    - icon: material/email-newsletter
+      link: https://marimo.io/newsletter
+    - icon: material/forum
+      link: https://community.marimo.io
+    - icon: fontawesome/brands/mastodon
+      link: https://mastodon.social/@marimo_io
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/marimo_io
-      name: marimo on Twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/marimo-io
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/marimo/
+
 plugins:
   - search
-  - marimo:
-      marimo_version: '0.9.12'
+  - tags
+  - marimo: {}
 
 watch:
   - mkdocs_marimo
@@ -81,26 +98,39 @@ watch:
 
 markdown_extensions:
   - admonition
-  - pymdownx.details
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - sane_lists
   - toc:
-      anchorlink: true
-      anchorlink_class: 'toclink'
-  - pymdownx.snippets:
-  - pymdownx.magiclink:
-  - attr_list:
-  - md_in_html:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite:
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
   - pymdownx.superfences:
-  - markdown.extensions.attr_list:
-  - pymdownx.keys:
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.highlight:
-      anchor_linenums: true
+      custom_fences:
+        - class: mermaid
+          name: mermaid
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 validation:
   nav:

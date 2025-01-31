@@ -60,3 +60,25 @@ mo.md(f"Change the slider value: {slider}")
 This will render a marimo cell that displays the source code and shows the output, but is not interactive in the browser (overriding the global `is_reactive` setting).
 
 Remember that options specified in individual code fences will override the global settings for that specific cell.
+
+## Releasing (for maintainers)
+
+To release a new version:
+
+1. Bump the version:
+
+   ```bash
+   hatch version patch  # or minor/major
+   git add pyproject.toml
+   git commit -m "chore: bump version to $(hatch version --no-color)"
+   git push origin main
+   ```
+
+2. Create and push a tag:
+
+   ```bash
+   git tag $(hatch version --no-color)
+   git push origin $(hatch version --no-color)
+   ```
+
+This will trigger the GitHub Actions workflow to build and publish the package to PyPI.

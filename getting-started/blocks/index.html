@@ -12,11 +12,13 @@
         <meta name="author" content="marimo team">
       
       
-        <link rel="canonical" href="https://marimo-team.github.io/mkdocs-marimo/getting-started/nav_notebook/">
+        <link rel="canonical" href="https://marimo-team.github.io/mkdocs-marimo/getting-started/blocks/">
       
       
-        <link rel="prev" href="../inline-notebook/">
+        <link rel="prev" href="../configuration/">
       
+      
+        <link rel="next" href="../inline-notebook/">
       
       
       <link rel="icon" href="../../assets/favicon.ico">
@@ -24,7 +26,7 @@
     
     
       
-        <title>Notebooks in Navigation - marimo mkdocs</title>
+        <title>Embedding the marimo playground - marimo mkdocs</title>
       
     
     
@@ -96,6 +98,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#embedding-marimo-notebooks-with-the-playground" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -127,7 +134,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notebooks in Navigation
+              Embedding the marimo playground
             
           </span>
         </div>
@@ -475,10 +482,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../blocks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Embedding the marimo playground
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -487,6 +514,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-plot-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Plot Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-with-hidden-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example with Hidden Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marimo-embed" class="md-nav__link">
+    <span class="md-ellipsis">
+      marimo-embed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marimo-embed-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      marimo-embed-file
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -517,17 +633,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../nav_notebook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +645,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -567,67 +675,160 @@
   
 
 
-  <h1>Notebooks in Navigation</h1>
-
-<div style="margin: auto; max-width: none;">
-                  <marimo-island
-        data-app-id="main"
-        data-cell-id="bkHC"
-        data-reactive="true"
-    >
-        <marimo-cell-output>
-
-<div class="marimo" style="--tw-bg-opacity: 0;">
-  <div class="flex flex-col items-center justify-center">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="size-20 animate-spin text-primary"
-    >
-      <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
-    </svg>
-    <div>Initializing...</div>
-  </div>
+<h1 id="embedding-marimo-notebooks-with-the-playground">Embedding marimo Notebooks with the Playground<a class="headerlink" href="#embedding-marimo-notebooks-with-the-playground" title="Permanent link">&para;</a></h1>
+<p>This guide covers the second approach to using marimo in your documentation: embedding full marimo notebooks using the marimo playground, <a href="https://docs.marimo.io/api/inputs/button/">like in our own documentation</a>. This approach is ideal when you want to:</p>
+<ul>
+<li>Show complete, multi-cell notebooks</li>
+<li>Allow users to edit and experiment with the code</li>
+<li>Embed existing .py notebooks</li>
+</ul>
+<p>If you're looking for simpler, inline code examples, check out the <a href="../quick-start/">Quick Start</a> guide's section on inline code.</p>
+<p>This feature uses <code>pymdownx.blocks</code> to embed marimo notebooks in your MkDocs documentation, creating iframes that render the marimo playground.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>To use the marimo playground, you need to install the <code>pymdown-extensions</code> package.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-marimo<span class="w"> </span>pymdown-extensions
+</span></code></pre></div>
+<h2 id="basic-example">Basic Example<a class="headerlink" href="#basic-example" title="Permanent link">&para;</a></h2>
+<p>Here's a simple example of embedding a marimo notebook using blocks:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/// marimo-embed
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    height: 400px
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    mode: read
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    app_width: wide
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="sb">```python</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">def</span> <span class="nf">__</span><span class="p">():</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="kn">import</span> <span class="nn">marimo</span> <span class="k">as</span> <span class="nn">mo</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;Enter your name&quot;</span><span class="p">,</span> <span class="n">debounce</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">name</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">return</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">def</span> <span class="nf">__</span><span class="p">():</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">mo</span><span class="o">.</span><span class="n">md</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, **</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;__&#39;</span><span class="si">}</span><span class="s2">**!&quot;</span><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="k">return</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="sb">```</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>///
+</span></code></pre></div>
+<div class="marimo-embed-container">
+<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="400px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22wide%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A%0A++++name+%3D+mo.ui.text%28placeholder%3D%22Enter+your+name%22%2C+debounce%3DFalse%29%0A++++name%0A++++return%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++mo.md%28f%22Hello%2C+%2A%2A%7Bname.value+or+%27__%27%7D%2A%2A%21%22%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=true" style="display: block; margin: 0 auto;" width="100%"></iframe>
 </div>
-
-        </marimo-cell-output>
-        <marimo-cell-code hidden> '' </marimo-cell-code>
-    </marimo-island>
-<marimo-island
-    data-app-id="main"
-    data-cell-id="Hbol"
-    data-reactive="true"
->
-    <marimo-cell-output>
-    </marimo-cell-output>
-    <marimo-cell-code hidden>mo.md(%22%22%22%0A%23%23%20You%20can%20link%20directly%20to%20marimo%20notebooks%2C%20in%20the%20mkdocs.yml%20file.%0A%0AThis%20content%20comes%20from%20a%20marimo%20notebook.%0A%22%22%22)</marimo-cell-code>
-</marimo-island>
-<marimo-island
-    data-app-id="main"
-    data-cell-id="MJUe"
-    data-reactive="true"
->
-    <marimo-cell-output>
-    </marimo-cell-output>
-    <marimo-cell-code hidden>mo.md(%0A%20%20%20%20%22%22%22%0A%20%20%20%20%60%60%60markdown%0A%20%20%20%20nav%3A%0A%20%20%20%20%20%20%20%20Examples%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20-%20Simple%3A%20simple_example.py%0A%20%20%20%20%20%20%20%20%20%20%20%20-%20Complex%3A%20complex_example.py%0A%20%20%20%20%60%60%60%0A%20%20%20%20%22%22%22%0A)</marimo-cell-code>
-</marimo-island>
-<marimo-island
-    data-app-id="main"
-    data-cell-id="vblA"
-    data-reactive="true"
->
-    <marimo-cell-output>
-    </marimo-cell-output>
-    <marimo-cell-code hidden>import%20marimo%20as%20mo</marimo-cell-code>
-</marimo-island>
-                </div>
+<h2 id="interactive-plot-example">Interactive Plot Example<a class="headerlink" href="#interactive-plot-example" title="Permanent link">&para;</a></h2>
+<p>Here's an example with an interactive plot:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/// marimo-embed
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    height: 800px
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    mode: read
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    app_width: wide
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sb">```python</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">def</span> <span class="nf">__</span><span class="p">():</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="kn">import</span> <span class="nn">marimo</span> <span class="k">as</span> <span class="nn">mo</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="c1"># Create interactive sliders</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">freq</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">amp</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">mo</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">freq</span><span class="p">,</span> <span class="n">amp</span><span class="p">])</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="k">return</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="k">def</span> <span class="nf">__</span><span class="p">():</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="c1"># Plot the sine wave</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">amp</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">freq</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Interactive Sine Wave&#39;</span><span class="p">)</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="k">return</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="sb">```</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>///
+</span></code></pre></div>
+<div class="marimo-embed-container">
+<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="800px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22wide%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A++++import+numpy+as+np%0A++++import+matplotlib.pyplot+as+plt%0A%0A++++%23+Create+interactive+sliders%0A++++freq+%3D+mo.ui.slider%281%2C+10%2C+value%3D2%2C+label%3D%22Frequency%22%29%0A++++amp+%3D+mo.ui.slider%280.1%2C+2%2C+value%3D1%2C+label%3D%22Amplitude%22%29%0A%0A++++mo.hstack%28%5Bfreq%2C+amp%5D%29%0A++++return%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++%23+Plot+the+sine+wave%0A++++x+%3D+np.linspace%280%2C+10%2C+1000%29%0A++++y+%3D+amp.value+%2A+np.sin%28freq.value+%2A+x%29%0A%0A++++plt.figure%28figsize%3D%2810%2C+6%29%29%0A++++plt.plot%28x%2C+y%29%0A++++plt.title%28%27Interactive+Sine+Wave%27%29%0A++++plt.xlabel%28%27x%27%29%0A++++plt.ylabel%28%27y%27%29%0A++++plt.grid%28True%29%0A++++plt.gca%28%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=true" style="display: block; margin: 0 auto;" width="100%"></iframe>
+</div>
+<h2 id="example-with-hidden-code">Example with Hidden Code<a class="headerlink" href="#example-with-hidden-code" title="Permanent link">&para;</a></h2>
+<p>Here's an example that hides the code:</p>
+<div class="marimo-embed-container">
+<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="400px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22wide%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A++++import+numpy+as+np%0A++++import+matplotlib.pyplot+as+plt%0A%0A++++x+%3D+np.linspace%280%2C+10%2C+100%29%0A++++y+%3D+np.sin%28x%29%0A++++plt.plot%28x%2C+y%29%0A++++plt.title%28%27Simple+Sine+Wave%27%29%0A++++plt.gca%28%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=false" style="display: block; margin: 0 auto;" width="100%"></iframe>
+</div>
+<h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h2>
+<h3 id="marimo-embed">marimo-embed<a class="headerlink" href="#marimo-embed" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>height</code></td>
+<td>Controls the height of the embed</td>
+<td>- Named sizes: <code>small</code> (300px), <code>medium</code> (400px), <code>large</code> (600px),<br> <code>xlarge</code> (800px), <code>xxlarge</code> (1000px)<br>- Custom size: Any pixel value (e.g. <code>500px</code>)</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>Controls the interaction mode</td>
+<td>- <code>read</code>: Read-only view (default)<br>- <code>edit</code>: Allows editing the code</td>
+</tr>
+<tr>
+<td><code>app_width</code></td>
+<td>Controls the width of the marimo app</td>
+<td>- <code>wide</code>: Standard width (default)<br>- <code>full</code>: Full width<br>- <code>compact</code>: Narrow width</td>
+</tr>
+<tr>
+<td><code>include_code</code></td>
+<td>Controls whether code is included in the embed</td>
+<td>- <code>true</code>: Show code (default)<br>- <code>false</code>: Hide code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="marimo-embed-file">marimo-embed-file<a class="headerlink" href="#marimo-embed-file" title="Permanent link">&para;</a></h3>
+<p>The <code>marimo-embed-file</code> block is used to embed existing marimo files:</p>
+<p>/// marimo-embed-file
+    filepath: getting-started/inlined.py
+    height: 600px
+    mode: read
+    show_source: true
+///</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filepath</code></td>
+<td>Path to the marimo file to embed</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>show_source</code></td>
+<td>Whether to show the source code below the embed</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>include_code</code></td>
+<td>Controls whether code is included in the embed</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -663,7 +864,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../inline-notebook/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Inline Notebook">
+          <a href="../configuration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -673,11 +874,27 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Inline Notebook
+                Configuration
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../inline-notebook/" class="md-footer__link md-footer__link--next" aria-label="Next: Inline Notebook">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Inline Notebook
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

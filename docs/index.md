@@ -11,7 +11,9 @@ A MkDocs plugin that brings interactive Python code execution to your documentat
 
 ## Features
 
-- ⚡️ Write and execute Python code directly in your Markdown files
+- ⚡️ Two flexible ways to embed Python code:
+  - **Inline Code**: Write and execute Python code directly in your Markdown files
+  - **Playground Embed**: Embed full marimo notebooks with the marimo playground
 - 🔄 Interactive widgets with real-time updates
 - 📊 Seamless integration with data visualization libraries
 - 🎨 Customizable styling to match your documentation theme

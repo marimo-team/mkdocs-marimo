@@ -3,7 +3,7 @@ build-backend = "hatchling.build"
 requires = ["hatchling"]
 
 [project]
-authors = [{ name = "marimo team", email = "myles@marimo.io" }]
+authors = [{ name = "marimo team", email = "contact@marimo.io" }]
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: POSIX :: Linux",
@@ -16,7 +16,12 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["htmlmin>=0.1.12,<0.2", "marimo>=0.8.15", "mkdocs>=1.5.2,<2"]
+dependencies = [
+  "htmlmin>=0.1.12,<0.2",
+  "marimo>=0.8.15",
+  "mkdocs>=1.5.2,<2",
+  "pymdown-extensions>=10.7",
+]
 description = "MkDocs marimo plugin"
 license = "Apache-2.0"
 name = "mkdocs-marimo"

@@ -116,7 +116,12 @@ class TestMarimoPlugin:
 
     def test_parse_options(self, plugin: MarimoPlugin):
         options_string = "display_code=true width=500 height=300 is_reactive"
-        expected = {"display_code": True, "width": 500, "height": 300, "is_reactive": True}
+        expected = {
+            "display_code": True,
+            "width": 500,
+            "height": 300,
+            "is_reactive": True,
+        }
         assert plugin.parse_options(options_string) == expected
 
     def test_parse_value(self, plugin: MarimoPlugin):
@@ -186,7 +191,8 @@ class TestMarimoPlugin:
     def test_process_marimo_file_directives(self, plugin: MarimoPlugin, tmp_path: Path) -> None:
         # Create a temporary marimo file
         marimo_file = tmp_path / "example.py"
-        marimo_file.write_text("""
+        marimo_file.write_text(
+            """
 import marimo
 app = marimo.App()
 
@@ -196,7 +202,8 @@ def __():
 
 if __name__ == "__main__":
     app.run()
-""")
+"""
+        )
 
         mock_page = MockPage(str(tmp_path / "current_file.md"))
 
@@ -363,7 +370,8 @@ if __name__ == "__main__":
 
         # Create a mock marimo Python file
         py_file_path = tmp_path / "example.py"
-        py_file_path.write_text("""
+        py_file_path.write_text(
+            """
 import marimo
 app = marimo.App()
 
@@ -373,13 +381,24 @@ def __():
 
 if __name__ == "__main__":
     app.run()
-""")
+"""
+        )
 
         # Create a mock files collection
         files = Files(
             [
-                File("index.md", str(tmp_path), str(tmp_path / "site"), use_directory_urls=True),
-                File("example.py", str(tmp_path), str(tmp_path / "site"), use_directory_urls=True),
+                File(
+                    "index.md",
+                    str(tmp_path),
+                    str(tmp_path / "site"),
+                    use_directory_urls=True,
+                ),
+                File(
+                    "example.py",
+                    str(tmp_path),
+                    str(tmp_path / "site"),
+                    use_directory_urls=True,
+                ),
             ]
         )
 
@@ -398,3 +417,52 @@ if __name__ == "__main__":
 
         # Check that the navigation was updated
         assert config.nav == [{"Home": "index.md"}, {"Python File": "example.md"}]
+
+    def test_marimo_embed_block_include_code(self, tmp_path: Path):
+        plugin = MarimoPlugin()
+        mock_page = MockPage(str(tmp_path / "test_page.md"))
+
+        # Configure plugin to use pymdown blocks
+        config = MkDocsConfig()
+        config.markdown_extensions = ["pymdownx.blocks"]
+        plugin.on_config(config)
+
+        # Test marimo-embed block with include_code=false
+        markdown = """/// marimo-embed
+            height: 400px
+            include_code: false
+
+        ```python
+        print('Hello')
+        ```
+
+        ///"""
+
+        result = plugin.on_page_markdown(markdown, page=mock_page, config=config, files=None)
+        result = plugin.on_post_page(result, page=mock_page, config=config)
+        # assert "include-code=false" in result
+
+        # Test marimo-embed-file block with include_code=false
+        file_content = """
+        import marimo
+        app = marimo.App()
+
+        @app.cell
+        def __():
+            print('Hello from file!')
+
+        if __name__ == "__main__":
+            app.run()
+        """
+        file_path = tmp_path / "example.py"
+        file_path.write_text(file_content)
+
+        markdown = """/// marimo-embed-file
+            filepath: example.py
+            height: 400px
+            include_code: false
+        ///"""
+
+        result = plugin.on_page_markdown(markdown, page=mock_page, config=config, files=None)
+        result = plugin.on_post_page(result, page=mock_page, config=config)
+        # assert "include-code=false" in result

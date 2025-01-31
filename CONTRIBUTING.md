@@ -22,3 +22,9 @@ Serve the documentation:
 ```bash
 pixi run docs
 ```
+
+Lint and format:
+
+```bash
+pixi run -e lint ruff format
+```

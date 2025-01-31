@@ -20,7 +20,7 @@ pixi add mkdocs-marimo
 
 Create reactive and interactive Python blocks in your markdown files using [marimo](https://github.com/marimo-team/marimo).
 
-### Embedding inline HTML components
+### Embedding inline Python code and marimo elements
 
 This uses code fences to embed marimo components as [marimo islands](https://docs.marimo.io/guides/exporting/?h=#embed-marimo-outputs-in-html-using-islands).
 

@@ -68,17 +68,17 @@ To release a new version:
 1. Bump the version:
 
    ```bash
-   hatch version patch  # or minor/major
+   # Bump the version
    git add pyproject.toml
-   git commit -m "chore: bump version to $(hatch version --no-color)"
+   git commit -m "chore: bump version to $(hatch --no-color version)"
    git push origin main
    ```
 
 2. Create and push a tag:
 
    ```bash
-   git tag $(hatch version --no-color)
-   git push origin $(hatch version --no-color)
+   git tag $(hatch --no-color version)
+   git push origin $(hatch --no-color version)
    ```
 
 This will trigger the GitHub Actions workflow to build and publish the package to PyPI.

@@ -5,7 +5,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("## You can also embed marimo apps inline with mkdocs!")
+    mo.md("You can also embed marimo apps inline with mkdocs!")
     return
 
 

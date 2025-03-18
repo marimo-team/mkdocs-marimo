@@ -6,7 +6,7 @@ app = marimo.App()
 @app.cell
 def __(mo):
     mo.md("""
-    ## You can link directly to marimo notebooks, in the mkdocs.yml file.
+    You can link directly to marimo notebooks, in the mkdocs.yml file.
 
     This content comes from a marimo notebook.
     """)
@@ -17,11 +17,11 @@ def __(mo):
 def __(mo):
     mo.md(
         """
-        ```markdown
+        ```yaml
         nav:
-            Examples:
-                - Simple: simple_example.py
-                - Complex: complex_example.py
+          Examples:
+            - Simple: simple_example.py
+            - Complex: complex_example.py
         ```
         """
     )

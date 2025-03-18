@@ -55,13 +55,16 @@ python = "3.10.*"
 python = "3.11.*"
 [feature.py312.dependencies]
 python = "3.12.*"
+[feature.py313.dependencies]
+python = "3.13.*"
 
 [environments]
 build = { features = ["build"], no-default-feature = true }
 default = ["test", "py312", "docs"]
 docs = ["docs"]
 lint = { features = ["lint"], no-default-feature = true }
+py39 = ["test", "py39"]
 py310 = ["test", "py310"]
 py311 = ["test", "py311"]
 py312 = ["test", "py312"]
-py39 = ["test", "py39"]
+py313 = ["test", "py313"]

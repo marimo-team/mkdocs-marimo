@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 from typing import List, Match, Optional
 from unittest.mock import MagicMock
@@ -273,6 +274,9 @@ if __name__ == "__main__":
         assert "!marimo_file /example.py" not in result
         assert "<marimo-island" in result
 
+    @pytest.mark.skipif(
+        sys.version_info < (3, 13), reason="Only Python >=3.13 supports correct quoting in output"
+    )
     def test_global_config_and_code_fence_options(self, tmp_path: Path):
         # Create a custom config with global options
         custom_config = MarimoPluginConfig()
@@ -312,7 +316,7 @@ if __name__ == "__main__":
         assert "<marimo-code-editor" not in result2
         # Output
         assert (
-            '<marimo-cell-output><pre style="font-size: 12px">World</pre></marimo-cell-output>'
+            '<marimo-cell-output><pre style="font-size: 12px">&#x27;World&#x27;</pre></marimo-cell-output>'
             in result2
         )
         assert "data-reactive=true" in result2
@@ -329,7 +333,7 @@ if __name__ == "__main__":
         assert "<marimo-code-editor" in result3
         # Output
         assert (
-            '<marimo-cell-output><pre style="font-size: 12px">Partial</pre></marimo-cell-output>'
+            '<marimo-cell-output><pre style="font-size: 12px">&#x27;Partial&#x27;</pre></marimo-cell-output>'
             in result3
         )
         assert "data-reactive=false" in result3

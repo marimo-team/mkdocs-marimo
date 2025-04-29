@@ -1,22 +1,27 @@
 import textwrap
-import urllib.parse
 import xml.etree.ElementTree as etree
 from typing import Any, Dict, List, Union, cast
+import urllib.parse
 
 from pymdownx.blocks import BlocksExtension  # type: ignore
-from pymdownx.blocks.block import Block, type_boolean, type_string, type_string_in  # type: ignore
+from pymdownx.blocks.block import (
+    Block,
+    type_boolean,
+    type_string,
+    type_string_in,
+)  # type: ignore
 
 
 class BaseMarimoBlock(Block):
     """Base class for marimo embed blocks"""
 
     OPTIONS: Dict[str, List[Union[str, Any]]] = {
-        "height": [
+        "size": [
             "medium",
-            type_string,  # Allow any string value for height (e.g. "500px", "small", etc.)
+            type_string_in(["small", "medium", "large", "xlarge", "xxlarge"]),
         ],
-        "mode": ["read", type_string_in(["read", "edit"])],
-        "include_code": [True, type_boolean],
+        "mode": ["edit", type_string_in(["read", "edit"])],
+        "show-chrome": [False, type_boolean],
     }
 
     def on_create(self, parent: etree.Element) -> etree.Element:
@@ -34,37 +39,16 @@ class BaseMarimoBlock(Block):
             block.remove(child)
 
         # Add iframe
-        height: str = cast(str, self.options["height"])
-        include_code: bool = cast(bool, self.options.get("include_code", True))
+        size: str = cast(str, self.options["size"])
         iframe = etree.SubElement(block, "iframe")
-
-        # Convert named sizes to pixels
-        height_map = {
-            "small": "300px",
-            "medium": "400px",
-            "large": "600px",
-            "xlarge": "800px",
-            "xxlarge": "1000px",
-        }
-        iframe_height = height_map.get(height, height)
-        if not iframe_height.endswith("px"):
-            iframe_height += "px"
-
-        # Adjust URL to include include_code parameter
-        url_parts = list(urllib.parse.urlparse(url))
-        query = dict(urllib.parse.parse_qsl(url_parts[4]))
-        query["include-code"] = str(include_code).lower()
-        url_parts[4] = urllib.parse.urlencode(query)
-        final_url = urllib.parse.urlunparse(url_parts)
-
-        iframe.set("class", "marimo-embed")
-        iframe.set("src", final_url)
+        iframe.set("class", f"demo {size}")
+        iframe.set("src", url)
         iframe.set(
             "allow",
             "camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write",
         )
         iframe.set("width", "100%")
-        iframe.set("height", iframe_height)
+        iframe.set("height", "400px")
         iframe.set("frameborder", "0")
         iframe.set("style", "display: block; margin: 0 auto;")
 
@@ -88,9 +72,11 @@ class MarimoEmbedBlock(BaseMarimoBlock):
 
         app_width: str = cast(str, self.options["app_width"])
         mode: str = cast(str, self.options["mode"])
+        show_chrome: bool = cast(bool, self.options["show-chrome"])
         url = create_marimo_app_url(
             code=create_marimo_app_code(code=code, app_width=app_width),
             mode=mode,
+            show_chrome=show_chrome,
         )
         self._create_iframe(block, url)
 
@@ -116,7 +102,10 @@ class MarimoEmbedFileBlock(BaseMarimoBlock):
             raise ValueError(f"File not found: {filepath}")
 
         mode: str = cast(str, self.options["mode"])
-        url = create_marimo_app_url(code=code, mode=mode)
+        show_chrome: bool = cast(bool, self.options["show-chrome"])
+        url = create_marimo_app_url(
+            code=code, mode=mode, show_chrome=show_chrome
+        )
         self._create_iframe(block, url)
 
         # Add source code section if enabled
@@ -125,6 +114,11 @@ class MarimoEmbedFileBlock(BaseMarimoBlock):
             details = etree.SubElement(block, "details")
             summary = etree.SubElement(details, "summary")
             summary.text = f"Source code for `{filepath}`"
+
+            # TODO: figure out syntax highlighting
+            # md_text = f"\n\n```python\n{code}\n```\n\n"
+            # result = self.md.htmlStash.store(self.md.convert(md_text))
+            # container.text = result
 
             copy_paste_container = etree.SubElement(details, "p")
             copy_paste_container.text = "Tip: paste this code into an empty cell, and the marimo editor will create cells for you"
@@ -152,24 +146,27 @@ def create_marimo_app_code(
             "",
         ]
     )
+    mo_cell = "\n".join(
+        [
+            "",
+            "@app.cell",
+            "def __():",
+            "    import marimo as mo",
+            "    return",
+        ]
+    )
 
-    # Only add import if not already present
-    if "import marimo as mo" not in code:
-        header += "\n".join(
-            [
-                "",
-                "@app.cell",
-                "def __():",
-                "    import marimo as mo",
-                "    return",
-            ]
-        )
-    return header + code
+    mo_at_bottom = "with app.setup:" in code
+    if mo_at_bottom:
+        return header + code + mo_cell
+    return header + mo_cell + code
 
 
-def create_marimo_app_url(code: str, mode: str = "read") -> str:
+def create_marimo_app_url(
+    code: str, mode: str = "edit", show_chrome: bool = False
+) -> str:
     encoded_code = uri_encode_component(code)
-    return f"https://marimo.app/?code={encoded_code}&embed=true&mode={mode}"
+    return f"https://marimo.app/?code={encoded_code}&embed=true&mode={mode}&show-chrome={'true' if show_chrome else 'false'}"
 
 
 class MarimoBlocksExtension(BlocksExtension):

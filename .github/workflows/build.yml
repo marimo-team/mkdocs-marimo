@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Setup pixi
-        uses: prefix-dev/setup-pixi@92815284c57faa15cd896c4d5cfb2d59f32dc43d # v0.8.3
+        uses: prefix-dev/setup-pixi@fef5c9568ca6c4ff7707bf840ab0692ba3f08293 # v0.9.0
         with:
           environments: build
       - name: Build package
         run: |
           pixi run -e build python -m build --no-isolation .
       - name: Upload package
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: artifact
           path: dist/*
@@ -39,7 +39,7 @@ jobs:
       contents: write
     environment: pypi
     steps:
-      - uses: actions/download-artifact@cc203385981b70ca67e1cc392babf9cc229d5806 # v4.1.9
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           name: artifact
           path: dist

@@ -719,7 +719,7 @@
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/// marimo-embed
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    height: 400px
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    mode: read
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    app_width: wide
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    app_width: medium
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="sb">```python</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
@@ -739,14 +739,14 @@
 </span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>///
 </span></code></pre></div>
 <div class="marimo-embed-container">
-<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="400px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22wide%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A%0A++++name+%3D+mo.ui.text%28placeholder%3D%22Enter+your+name%22%2C+debounce%3DFalse%29%0A++++name%0A++++return%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++mo.md%28f%22Hello%2C+%2A%2A%7Bname.value+or+%27__%27%7D%2A%2A%21%22%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=true" style="display: block; margin: 0 auto;" width="100%"></iframe>
+<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="400px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22medium%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A%0A++++name+%3D+mo.ui.text%28placeholder%3D%22Enter+your+name%22%2C+debounce%3DFalse%29%0A++++name%0A++++return%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++mo.md%28f%22Hello%2C+%2A%2A%7Bname.value+or+%27__%27%7D%2A%2A%21%22%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=true" style="display: block; margin: 0 auto;" width="100%"></iframe>
 </div>
 <h2 id="interactive-plot-example">Interactive Plot Example<a class="headerlink" href="#interactive-plot-example" title="Permanent link">&para;</a></h2>
 <p>Here's an example with an interactive plot:</p>
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/// marimo-embed
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    height: 800px
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    mode: read
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    app_width: wide
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    app_width: medium
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sb">```python</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
@@ -781,12 +781,12 @@
 </span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>///
 </span></code></pre></div>
 <div class="marimo-embed-container">
-<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="800px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22wide%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A++++import+numpy+as+np%0A++++import+matplotlib.pyplot+as+plt%0A%0A++++%23+Create+interactive+sliders%0A++++freq+%3D+mo.ui.slider%281%2C+10%2C+value%3D2%2C+label%3D%22Frequency%22%29%0A++++amp+%3D+mo.ui.slider%280.1%2C+2%2C+value%3D1%2C+label%3D%22Amplitude%22%29%0A%0A++++mo.hstack%28%5Bfreq%2C+amp%5D%29%0A++++return%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++%23+Plot+the+sine+wave%0A++++x+%3D+np.linspace%280%2C+10%2C+1000%29%0A++++y+%3D+amp.value+%2A+np.sin%28freq.value+%2A+x%29%0A%0A++++plt.figure%28figsize%3D%2810%2C+6%29%29%0A++++plt.plot%28x%2C+y%29%0A++++plt.title%28%27Interactive+Sine+Wave%27%29%0A++++plt.xlabel%28%27x%27%29%0A++++plt.ylabel%28%27y%27%29%0A++++plt.grid%28True%29%0A++++plt.gca%28%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=true" style="display: block; margin: 0 auto;" width="100%"></iframe>
+<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="800px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22medium%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A++++import+numpy+as+np%0A++++import+matplotlib.pyplot+as+plt%0A%0A++++%23+Create+interactive+sliders%0A++++freq+%3D+mo.ui.slider%281%2C+10%2C+value%3D2%2C+label%3D%22Frequency%22%29%0A++++amp+%3D+mo.ui.slider%280.1%2C+2%2C+value%3D1%2C+label%3D%22Amplitude%22%29%0A%0A++++mo.hstack%28%5Bfreq%2C+amp%5D%29%0A++++return%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++%23+Plot+the+sine+wave%0A++++x+%3D+np.linspace%280%2C+10%2C+1000%29%0A++++y+%3D+amp.value+%2A+np.sin%28freq.value+%2A+x%29%0A%0A++++plt.figure%28figsize%3D%2810%2C+6%29%29%0A++++plt.plot%28x%2C+y%29%0A++++plt.title%28%27Interactive+Sine+Wave%27%29%0A++++plt.xlabel%28%27x%27%29%0A++++plt.ylabel%28%27y%27%29%0A++++plt.grid%28True%29%0A++++plt.gca%28%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=true" style="display: block; margin: 0 auto;" width="100%"></iframe>
 </div>
 <h2 id="example-with-hidden-code">Example with Hidden Code<a class="headerlink" href="#example-with-hidden-code" title="Permanent link">&para;</a></h2>
 <p>Here's an example that hides the code:</p>
 <div class="marimo-embed-container">
-<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="400px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22wide%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A++++import+numpy+as+np%0A++++import+matplotlib.pyplot+as+plt%0A%0A++++x+%3D+np.linspace%280%2C+10%2C+100%29%0A++++y+%3D+np.sin%28x%29%0A++++plt.plot%28x%2C+y%29%0A++++plt.title%28%27Simple+Sine+Wave%27%29%0A++++plt.gca%28%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=false" style="display: block; margin: 0 auto;" width="100%"></iframe>
+<iframe allow="camera; geolocation; microphone; fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-read; clipboard-write" class="marimo-embed" frameborder="0" height="400px" src="https://marimo.app/?code=import+marimo%0Aapp+%3D+marimo.App%28width%3D%22medium%22%29%0A%0A%40app.cell%0Adef+__%28%29%3A%0A++++import+marimo+as+mo%0A++++import+numpy+as+np%0A++++import+matplotlib.pyplot+as+plt%0A%0A++++x+%3D+np.linspace%280%2C+10%2C+100%29%0A++++y+%3D+np.sin%28x%29%0A++++plt.plot%28x%2C+y%29%0A++++plt.title%28%27Simple+Sine+Wave%27%29%0A++++plt.gca%28%29%0A++++return%0A&amp;embed=true&amp;mode=read&amp;include-code=false" style="display: block; margin: 0 auto;" width="100%"></iframe>
 </div>
 <h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h2>
 <h3 id="marimo-embed">marimo-embed<a class="headerlink" href="#marimo-embed" title="Permanent link">&para;</a></h3>
@@ -812,7 +812,7 @@
 <tr>
 <td><code>app_width</code></td>
 <td>Controls the width of the marimo app</td>
-<td>- <code>wide</code>: Standard width (default)<br>- <code>full</code>: Full width<br>- <code>compact</code>: Narrow width</td>
+<td>- <code>medium</code>: Standard width (default)<br>- <code>full</code>: Full width<br>- <code>compact</code>: Narrow width</td>
 </tr>
 <tr>
 <td><code>include_code</code></td>

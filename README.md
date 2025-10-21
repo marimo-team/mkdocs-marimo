@@ -71,7 +71,7 @@ Available options for `marimo-embed`:
 
 - `height`: Named sizes (`small`, `medium`, `large`, `xlarge`, `xxlarge`) or custom pixel values (e.g. `500px`) (default: medium)
 - `mode`: read, edit (default: read)
-- `app_width`: wide, full, compact (default: wide)
+- `app_width`: medium, full, compact (default: medium)
 
 You can also embed marimo files directly:
 

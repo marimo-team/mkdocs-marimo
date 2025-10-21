@@ -26,7 +26,7 @@ Here's a simple example of embedding a marimo notebook using blocks:
 /// marimo-embed
     height: 400px
     mode: read
-    app_width: wide
+    app_width: medium
 
 ```python
 @app.cell
@@ -49,7 +49,7 @@ def __():
 /// marimo-embed
     height: 400px
     mode: read
-    app_width: wide
+    app_width: medium
 
 ```python
 @app.cell
@@ -76,7 +76,7 @@ Here's an example with an interactive plot:
 /// marimo-embed
     height: 800px
     mode: read
-    app_width: wide
+    app_width: medium
 
 ```python
 @app.cell
@@ -114,7 +114,7 @@ def __():
 /// marimo-embed
     height: 800px
     mode: read
-    app_width: wide
+    app_width: medium
 
 ```python
 @app.cell
@@ -155,7 +155,7 @@ Here's an example that hides the code:
 /// marimo-embed
     height: 400px
     mode: read
-    app_width: wide
+    app_width: medium
     include_code: false
 
 ```python
@@ -183,7 +183,7 @@ def __():
 | --- | --- | --- |
 | `height` | Controls the height of the embed | - Named sizes: `small` (300px), `medium` (400px), `large` (600px),<br> `xlarge` (800px), `xxlarge` (1000px)<br>- Custom size: Any pixel value (e.g. `500px`) |
 | `mode` | Controls the interaction mode | - `read`: Read-only view (default)<br>- `edit`: Allows editing the code |
-| `app_width` | Controls the width of the marimo app | - `wide`: Standard width (default)<br>- `full`: Full width<br>- `compact`: Narrow width |
+| `app_width` | Controls the width of the marimo app | - `medium`: Standard width (default)<br>- `full`: Full width<br>- `compact`: Narrow width |
 | `include_code` | Controls whether code is included in the embed | - `true`: Show code (default)<br>- `false`: Hide code |
 
 ### marimo-embed-file

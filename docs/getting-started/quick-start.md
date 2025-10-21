@@ -66,7 +66,7 @@ pip install pymdown-extensions
 /// marimo-embed
     height: 400px
     mode: read
-    app_width: wide
+    app_width: medium
 
 ```python
 @app.cell

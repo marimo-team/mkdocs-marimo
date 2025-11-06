@@ -27,11 +27,11 @@ def is_inside_four_backticks(markdown: str, start_pos: int) -> bool:
 
 
 def find_marimo_code_fences(markdown: str) -> list[re.Match[str]]:
-    matches: list[Any] = []
-    for match in CODE_FENCE_REGEX.finditer(markdown):
-        if not is_inside_four_backticks(markdown, match.start()):
-            matches.append(match)
-    return matches
+    return [
+        match
+        for match in CODE_FENCE_REGEX.finditer(markdown)
+        if not is_inside_four_backticks(markdown, match.start())
+    ]
 
 
 def collect_marimo_code(markdown: str) -> tuple[list[str], list[re.Match[str]]]:
@@ -98,6 +98,12 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
             and _is_marimo_file(page.abs_url)
         ):
             return self.handle_marimo_file(page)
+
+        # Early return if there's no marimo code to process
+        if ("!marimo_file" not in markdown) and (
+            "```python" not in markdown or "{marimo" not in markdown
+        ):
+            return markdown
 
         log.info("[marimo] on_page_markdown " + str(page.abs_url))
 
@@ -207,8 +213,8 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         # Add the extra header to the output
         output = output.replace("</head>", f"{header}\n</head>")
 
-        replacesments: list[str] = self.replacements.get(page.abs_url, [])
-        for idx, replacement in enumerate(replacesments):
+        replacements: list[str] = self.replacements.get(page.abs_url, [])
+        for idx, replacement in enumerate(replacements):
             output = output.replace(f"<marimo-internal-island idx='{idx}'/>", replacement, 1)
         return output
 

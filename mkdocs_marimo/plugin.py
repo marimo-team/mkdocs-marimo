@@ -99,12 +99,6 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         ):
             return self.handle_marimo_file(page)
 
-        # Early return if there's no marimo code to process
-        if ("!marimo_file" not in markdown) and (
-            "```python" not in markdown or "{marimo" not in markdown
-        ):
-            return markdown
-
         log.info("[marimo] on_page_markdown " + str(page.abs_url))
 
         # Process !marimo_file directives
@@ -113,11 +107,14 @@ class MarimoPlugin(BasePlugin[MarimoPluginConfig]):
         if page.abs_url is None:
             return markdown
 
+        code_blocks, matches = collect_marimo_code(markdown)
+        if not matches:
+            return markdown
+
         generator = marimo.MarimoIslandGenerator()
         replacements: list[str] = []
         self.replacements[page.abs_url] = replacements
         outputs: list[Any] = []
-        code_blocks, matches = collect_marimo_code(markdown)
 
         for code in code_blocks:
             outputs.append(generator.add_code(code))

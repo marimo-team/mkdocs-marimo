@@ -186,7 +186,7 @@ class TestMarimoPlugin:
         result = plugin.on_page_markdown(markdown, page=mock_page, config=MagicMock(), files=None)
         result = plugin.on_post_page(result, page=mock_page, config=MagicMock())
 
-        assert "This cell raised an exception" in result
+        assert "data-mime='\"application/vnd.marimo+error\"'" in result
         assert "Test error" in result
 
     def test_process_marimo_file_directives(self, plugin: MarimoPlugin, tmp_path: Path) -> None:

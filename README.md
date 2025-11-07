@@ -80,7 +80,7 @@ You can also embed marimo files directly:
     filepath: path/to/your/file.py
     height: 400px
     mode: read
-    show_source: true
+    show_source: 'true'
 ///
 ````
 

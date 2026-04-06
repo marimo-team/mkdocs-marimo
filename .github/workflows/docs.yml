@@ -30,7 +30,7 @@ jobs:
       - name: Deploy to gh-pages
         # TODO: replace with a maintained action
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: oprypin/push-to-gh-pages@v3
+        uses: oprypin/push-to-gh-pages@b16c4c1926875f4d9fce26ffc60a623b003231d2 # v3
         with:
           publish_dir: site
           commit_message: 'Generate docs: '

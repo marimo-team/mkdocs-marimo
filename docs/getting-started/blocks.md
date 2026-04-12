@@ -189,13 +189,14 @@ def __():
 ### marimo-embed-file
 
 The `marimo-embed-file` block is used to embed existing marimo files:
-
+```
 /// marimo-embed-file
     filepath: getting-started/inlined.py
     height: 600px
     mode: read
-    show_source: true
+    show_source: "true"
 ///
+```
 
 | Option | Description | Default |
 | --- | --- | --- |

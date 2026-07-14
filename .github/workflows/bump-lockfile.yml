@@ -1,8 +1,6 @@
 name: Update lockfiles
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 on:
   workflow_dispatch:
@@ -35,3 +33,6 @@ jobs:
           labels: pixi
           delete-branch: true
           add-paths: pixi.lock
+    permissions:
+      contents: write
+      pull-requests: write

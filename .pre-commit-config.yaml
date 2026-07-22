@@ -1,4 +1,20 @@
 exclude: \.pixi
+
+# All hooks below are `language: system` and shell out to `pixi`, which is not
+# available in the pre-commit.ci runner ("Executable `pixi` not found"). These
+# hooks are already run in this repo's own CI (the `lint` job in ci.yml, via
+# `pixi run pre-commit-run`), so skip them on pre-commit.ci to keep it green.
+ci:
+  skip:
+    - pixi-install
+    - ruff
+    - ruff-format
+    - mypy
+    - taplo
+    - trailing-whitespace-fixer
+    - end-of-file-fixer
+    - typos
+
 repos:
   - repo: local
     hooks:

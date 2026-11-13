@@ -15,7 +15,7 @@ jobs:
   build:
     name: Deploy docs
     timeout-minutes: 5
-    runs-on: ubuntu-p-small
+    runs-on: "${{ vars.CI_RUNNER_SMALL || 'ubuntu-latest' }}"
     steps:
       - name: Download source
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
